@@ -1,3 +1,33 @@
 from django.db import models
 
 # Create your models here.
+difficulty_choices= (
+    ('Easy', 'easy'), 
+    ('Medium', 'medium'), 
+    ('Intermediate', 'intermediate'), 
+    ('Hard', 'hard'),
+)
+
+class Recipe(models.Model):
+    name = models.CharField(max_length=100)
+    cooking_time = models.IntegerField(help_text='Enter the cooking time in minutes', default=0)
+    ingredients = models.CharField(max_length=250, help_text= "Enter each ingredient separated by a comma")
+    difficulty = models.CharField(max_length=120, choices=difficulty_choices, default='Easy')
+    
+    def __str__(self):
+        return f"{self.name} - {self.difficulty} - {self.cooking_time}"
+    
+    def save(self, *args, **kwargs):
+        self.calc_difficulty()
+        super().save(*args, **kwargs)
+
+    def calc_difficulty(self):
+        ingredients_len = len(self.ingredients.split(", "))
+        if self.cooking_time < 10 and ingredients_len < 4:
+            self.difficulty = "Easy"
+        elif self.cooking_time < 10 and ingredients_len >= 4:
+            self.difficulty = "Medium"
+        elif self.cooking_time >= 10 and ingredients_len < 4:
+            self.difficulty = "Intermediate"
+        elif self.cooking_time >= 10 and ingredients_len >= 4:
+            self.difficulty = "Hard"
