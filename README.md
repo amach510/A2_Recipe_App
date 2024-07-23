@@ -9,3 +9,4 @@ A recipe app that will allow users to sign up and create their own content.
 
 ## Tech Used
 * Django
+* Pillow
