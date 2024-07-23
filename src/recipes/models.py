@@ -14,6 +14,8 @@ class Recipe(models.Model):
     ingredients = models.CharField(max_length=250, help_text= "Enter each ingredient separated by a comma")
     difficulty = models.CharField(max_length=120, choices=difficulty_choices, default='Easy')
     pic = models.ImageField(upload_to='recipes', help_text= "Upload Image (Min.250px)", default='no_picture.jpg')
+    author = models.CharField(max_length=120, default='anonymous')
+    instructions = models.TextField(default="No instructions ...")
     
     def __str__(self):
         return f"{self.name} - {self.difficulty} - {self.cooking_time}"
