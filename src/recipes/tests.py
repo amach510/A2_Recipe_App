@@ -39,3 +39,10 @@ class RecipeModelTest(TestCase):
         recipe = Recipe(cooking_time=10, ingredients="Ingredient 1, Ingredient 2, Ingredient 3, Ingredient 4")
         recipe.save() # calls calc_difficulty
         self.assertEqual(recipe.difficulty, "Hard")
+
+    # Test to see if functions working
+    def test_get_absolute_url(self):
+       recipe = Recipe.objects.get(id=1)
+       #get_absolute_url() should take you to the detail page of recipe #1
+       #and load the URL /recipes/1
+       self.assertEqual(recipe.get_absolute_url(), '/recipes/1')

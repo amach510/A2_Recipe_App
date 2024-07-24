@@ -1,24 +1,18 @@
 <!DOCTYPE html>
 {% load static %}
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes Home</title>
+    <title>Recipes Details</title>
     <link rel="icon" href="{% static 'kawaii_bread_favicon.png' %}" type="image/x-icon">
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-image: url("{% static 'recipes/images/recipes_home.jpg' %}");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            overflow-x: hidden;
+            background-color: #f8eff6;
         }
-
+        
         header {
             display: flex;
             justify-content: space-between;
@@ -27,7 +21,7 @@
 
         nav {
             display: flex;
-            align-items: center; 
+            align-items: center;
             background: #eff8f1;
         }
 
@@ -37,7 +31,7 @@
             overflow: hidden;
             display: flex;
             align-items: center;
-            flex: 1; 
+            flex: 1;
         }
 
         .navitem {
@@ -59,7 +53,7 @@
         }
 
         .navitem input {
-            font-size: 20px;
+            font-size: 20x;
             background-color: #EFF6F8;
             color: #000;
             border: none;
@@ -72,42 +66,27 @@
         }
 
         main {
-            margin-top: 20vh;
+            padding: 15px 150px;
             display: flex;
-            flex-direction: column;
-            align-items: center;
+            flex-direction: row;
             justify-content: center;
         }
 
-        .main-box {
-            padding: 80px 120px;
+        .left {
+            padding:25px;
+        }
+
+        .left img {
+            min-width: 500px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details {
+            padding: 25px;
             display: flex;
             flex-direction: column;
-            align-items: center;
             justify-content: center;
-            background: rgba(255, 255, 255, 0.23);
-            border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(7px);
-        }
-
-        .main-box h1{
-            font-size: 40px;
-        }
-
-        .button {
-            padding: 10px 20px;
-            background-color: #426552;
-            color: white;
-            border: none;
-            border-radius: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: 0.3s ease-in-out;
-        }
-
-        .button:hover {
-            transform: scale(1.05);
         }
     </style>
 </head>
@@ -122,9 +101,16 @@
         </ul>
     </nav>
     <main>
-        <div class="main-box">
-            <h1>Welcome</h1>
-            <button class="button">Check our recipes!</button>
+        <div class="left">
+            <h2>{{object.name}}</h2>
+            <img src="{{object.pic.url}}" width="200" height="300" />
+        </div>
+        <div class="details">
+            <p><b>Author: </b>{{object.author}}</p>
+            <p><b>Cooking time: </b>{{object.cooking_time}}</p>
+            <p><b>Difficulty: </b>{{object.difficulty}}</p>
+            <p><b>Ingredients: </b>{{object.ingredients}}</p>
+            <p><b>Instructions: </b>{{object.instructions}}</p>
         </div>
     </main>
 </body>
