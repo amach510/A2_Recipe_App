@@ -7,18 +7,48 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Recipe',
+            name="Recipe",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100)),
-                ('cooking_time', models.IntegerField(default=0, help_text='Enter the cooking time in minutes')),
-                ('ingredients', models.CharField(help_text='Enter each ingredient separated by a comma', max_length=250)),
-                ('difficulty', models.CharField(choices=[('Easy', 'easy'), ('Medium', 'medium'), ('Intermediate', 'intermediate'), ('Hard', 'hard')], default='Easy', max_length=120)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=100)),
+                (
+                    "cooking_time",
+                    models.IntegerField(
+                        default=0, help_text="Enter the cooking time in minutes"
+                    ),
+                ),
+                (
+                    "ingredients",
+                    models.CharField(
+                        help_text="Enter each ingredient separated by a comma",
+                        max_length=250,
+                    ),
+                ),
+                (
+                    "difficulty",
+                    models.CharField(
+                        choices=[
+                            ("Easy", "easy"),
+                            ("Medium", "medium"),
+                            ("Intermediate", "intermediate"),
+                            ("Hard", "hard"),
+                        ],
+                        default="Easy",
+                        max_length=120,
+                    ),
+                ),
             ],
         ),
     ]

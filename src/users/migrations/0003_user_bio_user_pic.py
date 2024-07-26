@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('users', '0002_rename_users_user'),
+        ("users", "0002_rename_users_user"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='user',
-            name='bio',
-            field=models.TextField(default='Empty bio...'),
+            model_name="user",
+            name="bio",
+            field=models.TextField(default="Empty bio..."),
         ),
         migrations.AddField(
-            model_name='user',
-            name='pic',
-            field=models.ImageField(default='no_picture.jpg', upload_to='users'),
+            model_name="user",
+            name="pic",
+            field=models.ImageField(default="no_picture.jpg", upload_to="users"),
         ),
     ]

@@ -6,23 +6,27 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('recipes', '0001_initial'),
+        ("recipes", "0001_initial"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='recipe',
-            name='author',
-            field=models.CharField(default='anonymous', max_length=120),
+            model_name="recipe",
+            name="author",
+            field=models.CharField(default="anonymous", max_length=120),
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='instructions',
-            field=models.TextField(default='No instructions ...'),
+            model_name="recipe",
+            name="instructions",
+            field=models.TextField(default="No instructions ..."),
         ),
         migrations.AddField(
-            model_name='recipe',
-            name='pic',
-            field=models.ImageField(default='no_picture.jpg', help_text='Upload Image (Min.250px)', upload_to='recipes'),
+            model_name="recipe",
+            name="pic",
+            field=models.ImageField(
+                default="no_picture.jpg",
+                help_text="Upload Image (Min.250px)",
+                upload_to="recipes",
+            ),
         ),
     ]
