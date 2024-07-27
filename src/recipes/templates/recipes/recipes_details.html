@@ -93,10 +93,10 @@
 <body>
     <nav>
         <ul>
-            <li class="navitem"><a href="#">Recipes</a></li>
-            <li class="navitem"><a href="#">Ingredients</a></li>
+            <li class="navitem"><a href="{% url 'recipes:recipes' %}">Recipes</a></li>
+            <li class="navitem"><a href="{% url 'users:profile' %}">Profile</a></li>
             <li class="navitem"><h1>Recipe App</h1></li>
-            <li class="navitem"><a href="#">About us</a></li>
+            <li class="navitem"><a href ="{%url 'logout' %}"> Logout </a></li>
             <li class="navitem"><input type="text" placeholder="Search"></li>
         </ul>
     </nav>
