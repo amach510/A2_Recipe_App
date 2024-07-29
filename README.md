@@ -11,3 +11,4 @@ A recipe app that will allow users to sign up and create their own content.
 * Django
 * Pillow
 * Black (for formatting)
+* Pandas
