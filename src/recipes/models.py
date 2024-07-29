@@ -1,5 +1,5 @@
 from django.db import models
-from django.shortcuts import reverse
+from django.utils import timezone
 
 # Create your models here.
 difficulty_choices = (
@@ -8,7 +8,6 @@ difficulty_choices = (
     ("Intermediate", "intermediate"),
     ("Hard", "hard"),
 )
-
 
 class Recipe(models.Model):
     name = models.CharField(max_length=100)
@@ -28,12 +27,10 @@ class Recipe(models.Model):
     )
     author = models.CharField(max_length=120, default="anonymous")
     instructions = models.TextField(default="No instructions ...")
+    date_created = models.DateField(default=timezone.now)
 
     def __str__(self):
         return f"{self.name} - {self.difficulty} - {self.cooking_time}"
-
-    def get_absolute_url(self):
-        return reverse("recipes:detail", kwargs={"pk": self.pk})
 
     def save(self, *args, **kwargs):
         self.calc_difficulty()

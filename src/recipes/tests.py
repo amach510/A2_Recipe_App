@@ -1,4 +1,5 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
 from .models import Recipe
 
 
@@ -44,9 +45,6 @@ class RecipeModelTest(TestCase):
         recipe.save()  # calls calc_difficulty
         self.assertEqual(recipe.difficulty, "Hard")
 
-    # Test to see if functions working
-    def test_get_absolute_url(self):
-        recipe = Recipe.objects.get(id=1)
-        # get_absolute_url() should take you to the detail page of recipe #1
-        # and load the URL /recipes/1
-        self.assertEqual(recipe.get_absolute_url(), "/recipes/1")
+class RecipeAuthTest(TestCase):
+    def setUpTestData():
+        pass
