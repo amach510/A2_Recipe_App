@@ -99,11 +99,11 @@
         </ul>
     </nav>
     <div class="left">
-        <img src="{{user.pic.url}}" width="250" height="300" />
+        <img src="{{ current_user.pic.url }}" alt="no_picture.jpg"/>
     </div>
     <div class="bio">
-        <h2>{{ current_user.name }}</h2>
-        <p><strong>Username:</strong> {{ current_user.username }}</p>
+        <h2>{{ current_user.user }}</h2>
+        <p><strong>Name:</strong> {{ current_user.name }}</p>
         <p><strong>Bio:</strong><br/>{{ current_user.bio|linebreaksbr }}</p>
     </div>
 </body>
