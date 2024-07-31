@@ -1,6 +1,6 @@
 # Recipe App
 ## Project description
-This recipe application utilizes a PostgreSQL database on the server side and delivers HTML and CSS pages on the client side using the Django framework. Users can register and contribute their own content. They can also create and update recipes, specifying ingredients, cooking duration, and difficulty.
+This recipe application utilizes a PostgreSQL database on the server side and delivers HTML and CSS pages on the client side using the Django framework. Users can register and view existing recipes that are on the webpage.
 
 ## Key Features
 * Implement user authentication, login, and logout functionality.
